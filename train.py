@@ -17,3 +17,11 @@ model.fit(X_train, y_train)
 with open("model.pkl", "wb") as f:
     pickle.dump(model, f)
     print("Model saved successfully!")
+from sklearn.metrics import r2_score, mean_absolute_error
+
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_test)
+
+print("R² Score:", round(r2_score(y_test, predictions), 3))
+print("MAE:", round(mean_absolute_error(y_test, predictions), 3))
